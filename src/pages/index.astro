@@ -1,5 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Hali from '../../public/images/Haliburton.webp';
+import Tatum from '../../public/images/Tatum.webp';
+
+
+const cards = [
+	{
+		id : 1,
+		title: "Haliburton",
+		description: "The first card of the series",
+		cardImage : Hali,
+	},
+	{
+		id: 2,
+		title: "Tatum",
+		description: "The second card of the series",
+		cardImage: Tatum
+	}
+
+
+]
 
 ---
 
@@ -7,7 +28,17 @@ import Layout from '../layouts/Layout.astro';
 	<main>
 		<h1 class="text-6xl text-center text-white font-bold">Welcome to CollectorBilds</h1>
 		<p class="text-center text-white mt-10 "> The destination reference for the collectors to put the bilds of your cards.</p>
+
+		{
+			cards.map((card) => 
+			<div class="grid grid-cols-2  gap-5 justify-items-center">
+
+				<Card id={card.id} title={card.title} description={card.description} cardImage={card.cardImage} />
+			</div>
+			)
+		}
 	</main>
+
 </Layout>
 
 

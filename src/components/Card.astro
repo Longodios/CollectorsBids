@@ -1,0 +1,12 @@
+---
+import Image from "astro/components/Image.astro"
+const {title, description, cardImage} = Astro.props
+---
+
+
+<div class=" w-full rounded border-2 border-yellow">
+    <h1 class="text-center text-white"> {title} </h1>
+    <p class="text-center text-white"> {description}</p>
+    <Image class="hover:animate-rotar  " src={cardImage} alt="Card Image" width={250} height={150} />
+
+</div>
