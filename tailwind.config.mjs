@@ -9,9 +9,12 @@ export default {
 			  '0%': { transform: 'rotateY(180deg)' },
 			  '100%': { transform: 'rotateY(-180deg)' },
 			},
+			
 		  },
 		  animation: {
 			rotar: 'rotar 5s linear infinite',
+
+			
 		  },
 		},
 	  },

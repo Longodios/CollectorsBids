@@ -2,11 +2,22 @@
 import Image from "astro/components/Image.astro"
 const {title, description, cardImage} = Astro.props
 ---
+    <div class="w-full h-auto">
 
+        <div class="flex items-center flex-col rounded border-2 border-yellow">
+            <h1 class="text-center text-white"> {title} </h1>
+            <p class="text-center text-white"> {description}</p>
+            <Image class="animate-rotar  " src={cardImage} alt="Card Image" width={250} height={150} />
+            <div class="mt-2 flex flex-col gap-3">
+                <label class="text-white">Actual Bild :</label>
+                <lable class="text-white">Upload Bild:</lable>
+                <input type="text" class="border-2 border-black rounded-full">
+                <button class="text-black rounded-full border-2 bg-white ">Sumit Bild</button>
+            </div>
+            
+        </div>
+    </div>
 
-<div class=" w-full rounded border-2 border-yellow">
-    <h1 class="text-center text-white"> {title} </h1>
-    <p class="text-center text-white"> {description}</p>
-    <Image class="hover:animate-rotar  " src={cardImage} alt="Card Image" width={250} height={150} />
-
-</div>
+<script>
+    
+</script>

@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Hali from '../../public/images/Haliburton.webp';
 import Tatum from '../../public/images/Tatum.webp';
+import Jokic from '../../public/images/Jokic.webp';
+import Wemby from '../../public/images/Wemby.webp';
 
 
 const cards = [
@@ -17,6 +19,18 @@ const cards = [
 		title: "Tatum",
 		description: "The second card of the series",
 		cardImage: Tatum
+	},
+	{
+		id: 3, 
+		title : "Jokic",
+		description: "The third card of the series", 
+		cardImage : Jokic,
+	},
+	{
+		id: 4,
+		title: "Wemby",
+		description: "The fourth card of the series",
+		cardImage: Wemby
 	}
 
 
@@ -29,14 +43,14 @@ const cards = [
 		<h1 class="text-6xl text-center text-white font-bold">Welcome to CollectorBilds</h1>
 		<p class="text-center text-white mt-10 "> The destination reference for the collectors to put the bilds of your cards.</p>
 
+		<div class="grid grid-cols-2 w-full gap-5 justify-items-center">
 		{
 			cards.map((card) => 
-			<div class="grid grid-cols-2  gap-5 justify-items-center">
 
 				<Card id={card.id} title={card.title} description={card.description} cardImage={card.cardImage} />
-			</div>
 			)
 		}
+		</div>
 	</main>
 
 </Layout>
