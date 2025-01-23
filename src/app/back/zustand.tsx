@@ -10,7 +10,10 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
 
  export const useAPIFunctions = create((set) => ({
 
-    users : [],
+    users : [{
+        email : "",
+        password: ""
+    }],
 
     getUsers : async() => {
        
@@ -25,8 +28,14 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
         }
     },
 
-    postUsers : async() => {
-        const {data , error} = await supabase.from("users").insert([])
+    postUsers : async(email, password) => {
+        const {data , error} = await supabase.from("users").insert([email , password])
+        console.log(data)
+        if(error){
+            console.log(error.message);
+        } else {
+            set({users : data});
+        }
     }
 }));
 

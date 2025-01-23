@@ -1,19 +1,32 @@
 import Layout from '../layout/layout';
 import {useAPIFunctions} from '../back/zustand';
+import React from "react"
 
 
 export default function Login() {
+
+    const {users} = useAPIFunctions();
 
       function handleChange(e){
         e.preventDefault();
         const {name, value} = e.target;
         console.log(value)
+
+        if (name === "email"){
+            users.email = value;
+            console.log(users.email)
+        } else if (name === "password"){
+            users.password = value;
+            console.log(users.password)
+        }
     }
 
     function handleSubmit(e){
+        e.preventDefault();
         const {postUsers} = useAPIFunctions();
-        postUsers();
+        postUsers(users.email , users.password);
         console.log("Usuario registrado con exito");
+       
     }
 
     return (
@@ -22,9 +35,9 @@ export default function Login() {
 
             <form className="flex flex-col items-center">
                 <label  className="text-white text-center">Email : </label>
-                <input onChange={handleChange} className="rounded-xl" type="email" name="email" />
+                <input onChange={handleChange} className="rounded-xl" type="email" name="email" value={users.email} />
                 <label className="text-white text-center">Password:</label>
-                <input onChange={handleChange} className="rounded-xl" type="password" name="password"/>
+                <input onChange={handleChange} className="rounded-xl" type="password" name="password" value={users.password}/>
                 <button onClick={handleSubmit} className="bg-green-500 w-20 p-3 ">Register</button>
             </form>
 
