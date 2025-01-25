@@ -1,6 +1,8 @@
-import Layout from '../layout/layout';
-import {useAPIFunctions} from '../back/zustand';
-import React from "react"
+"use client"
+import Layout from '../layout';
+import {useAPIFunctions} from '../store/zustand';
+
+
 
 
 export default function Login() {
@@ -30,7 +32,7 @@ export default function Login() {
     }
 
     return (
-        <Layout>
+       
             <section className="w-full">
 
             <form className="flex flex-col items-center">
@@ -43,7 +45,7 @@ export default function Login() {
 
             </section>
       
-        </Layout>
+       
     )
 }
 

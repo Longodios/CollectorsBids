@@ -1,15 +1,15 @@
 import {create} from 'zustand';
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js'
+import { Database } from '../../../database.types';
+
+
+const supabase = createClient<Database>(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
 
 
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
+ export const  useAPIFunctions = create((set) => ({
 
- const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
- export const useAPIFunctions = create((set) => ({
-
+  
     users : [{
         email : "",
         password: ""
@@ -29,6 +29,7 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
     },
 
     postUsers : async(email, password) => {
+        
         const {data , error} = await supabase.from("users").insert([email , password])
         console.log(data)
         if(error){

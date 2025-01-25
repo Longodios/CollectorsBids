@@ -1,5 +1,5 @@
-import Layout from '../layout/layout';
-import {useAPIFunctions} from '../back/zustand';
+import Layout from '../layout';
+import {useAPIFunctions} from '../store/zustand';
 import React from "react"
 
 
