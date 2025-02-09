@@ -1,9 +1,9 @@
 import {create} from 'zustand';
 import { createClient } from '@supabase/supabase-js'
-import { Database } from '../../../database.types';
 
 
-const supabase = createClient<Database>(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
+
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
 
 
 
@@ -28,7 +28,7 @@ const supabase = createClient<Database>(process.env.NEXT_PUBLIC_SUPABASE_URL!, p
         }
     },
 
-    postUsers : async(email, password) => {
+    postUsers : async(email: string, password: string) => {
         
         const {data , error} = await supabase.from("users").insert([email , password])
         console.log(data)

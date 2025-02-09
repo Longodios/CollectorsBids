@@ -1,9 +1,4 @@
-
-
-import Layout from './layout';
-import Users from '../app/components/users';
-
-
+import { Login } from "./components";
 export default function PruebaFunction() {
 
 
@@ -15,7 +10,7 @@ export default function PruebaFunction() {
     return (
         
        
-       <h1>Hola Main</h1> 
+      <Login/>
             
        
     );

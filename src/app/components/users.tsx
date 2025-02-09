@@ -1,10 +1,10 @@
 import Layout from '../layout';
 import {useAPIFunctions} from '../store/zustand';
-import React from "react"
 
 
 
-export default function Users(){
+
+export const Users = () => {
 
     const {users , getUsers} = useAPIFunctions();
 
@@ -20,3 +20,5 @@ export default function Users(){
     </div> 
     )
 }
+
+export default Users;
